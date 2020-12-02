@@ -28,9 +28,12 @@
   <body>
     <div class="container">
       <header class="header">
-        <div class="random-button" id="btn-random">
+        <div class="random-button random" id="btn-random">
           Random
           <em class="material-icons">sync</em>
+        </div>
+        <div class="random-button close" id="btn-random">
+          <em class="material-icons">clear</em>
         </div>
       </header>
     </div>
@@ -40,7 +43,7 @@
           <div></div>
           <div></div>
         </div>
-        <div class="quote-container">
+        <div class="quote-container" id="quote-container">
           <p id="quoteParagraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
             assumenda debitis ea quaerat sunt fugit! Culpa sint error voluptates
@@ -48,10 +51,26 @@
             Excepturi!
           </p>
         </div>
-        <div class="quote-author">
+        <div class="quote-author" id="btn-author">
           <p id="authorQuote">Bill Gates</p>
           <span id="typeQuote">Bussiness</span>
           <em class="material-icons right author__icon">arrow_right_alt</em>
+        </div>
+        <div class="quotes-modal hidden" id="modal">
+          <div class="quotes">
+            <!-- <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Veritatis dolorem a non architecto, fuga molestiae omnis animi
+              laudantium consequuntur placeat quod! Asperiores iusto quidem
+              tempore, quod dolore libero qui hic.
+            </p> -->
+          </div>
         </div>
       </div>
     </div>
