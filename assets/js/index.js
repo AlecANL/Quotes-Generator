@@ -52,7 +52,7 @@ function showAllQuotes() {
   getQuoteByAuthor();
 }
 async function getQuoteByAuthor() {
-  let apiByAuthor = `https://quote-garden.herokuapp.com/api/v2/authors/${author}?page=1&limit=10`;
+  let apiByAuthor = `https://quote-garden.herokuapp.com/api/v3/authors/${author}?page=1&limit=10`;
   const quoteByAuthor = await getRandomQuote(apiByAuthor);
   loadComponent(quoteByAuthor.quotes);
 }
