@@ -13,7 +13,7 @@ const $quoteText = document.getElementById('quoteParagraph'),
   $random = document.querySelector('.random'),
   $close = document.querySelector('.close');
 
-const api = 'https://quote-garden.herokuapp.com/api/v2/quotes/random';
+const api = 'https://quote-garden.herokuapp.com/api/v3/quotes/random';
 let loader = true;
 let author = undefined;
 $quoteContainer.style.display = 'none';
