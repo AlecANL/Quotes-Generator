@@ -13,8 +13,9 @@
       type="image/x-icon"
       href="https://devchallenges.io/"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -23,21 +24,53 @@
     />
     <link rel="stylesheet" href="./assets/styles/styles.css" />
 
-    <title>Devchallenges</title>
+    <title>Quote Generator | Devchallenges</title>
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <div class="random-button random" id="btn-random">
-          Random
-          <em class="material-icons">sync</em>
+    <header class="header">
+      <div class="btn btn-randon random-button random" id="btn-random">
+        Random
+        <em class="icon-random material-icons">sync</em>
+      </div>
+    </header>
+    <main class="main">
+      <div class="lds-ripple loader" id="loader">
+        <div></div>
+        <div></div>
+      </div>
+      <section class="quote-container" id="quote-container">
+        <p class="quote" id="quote">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+          quaerat, iusto aspernatur ex rcitationem iure id distinctio eos
+          doloribus dolorem quam maxime non ad, voluptatum error corrupti eum
+          sint aperiam itaque?
+        </p>
+        <div class="author-section" id="btn-author-section">
+          <div class="data">
+            <p class="author-section__author" id="author">Bill Gates</p>
+            <p class="author-section__type-quote" id="type">bussiness</p>
+          </div>
+          <em class="icon-arrow material-icons right author__icon"
+            >arrow_right_alt</em
+          >
         </div>
-        <div class="random-button close" id="btn-random">
+      </section>
+      <section class="modal active" id="modal">
+        <div class="btn close" id="btn-close">
           <em class="material-icons">clear</em>
         </div>
-      </header>
-    </div>
-    <div class="container">
+        <section class="quote-container all-quotes" id="allquotes-container">
+          <!-- <p class="quote m-1" id="quote">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            quaerat, iusto aspernatur ex rcitationem iure id distinctio eos
+            doloribus dolorem quam maxime non ad, voluptatum error corrupti eum
+            sint aperiam itaque?
+          </p> -->
+        </section>
+      </section>
+    </main>
+
+    <!-- <div class="container">
       <div class="quote-section">
         <div class="lds-ripple" id="loader">
           <div></div>
@@ -58,22 +91,82 @@
         </div>
         <div class="quotes-modal hidden" id="modal">
           <div class="quotes">
-            <!-- <p class="quote quote-container">
+            <p class="quote quote-container">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
               minus tempora nam, iste officiis suscipit eveniet porro delectus
               reiciendis? Mollitia molestias quod commodi sunt aut fuga
               doloremque reiciendis suscipit? Cumque.
             </p>
             <p class="quote quote-container">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Veritatis dolorem a non architecto, fuga molestiae omnis animi
-              laudantium consequuntur placeat quod! Asperiores iusto quidem
-              tempore, quod dolore libero qui hic.
-            </p> -->
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
+            <p class="quote quote-container">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+              minus tempora nam, iste officiis suscipit eveniet porro delectus
+              reiciendis? Mollitia molestias quod commodi sunt aut fuga
+              doloremque reiciendis suscipit? Cumque.
+            </p>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <script src="./assets/js/index.js"></script>
   </body>
 </html>

@@ -1,3 +1,9 @@
+:root {
+  --soft-yellow: rgba(247, 223, 148, 1);
+  --warm-black: rgba(51, 51, 51, 1);
+  --soft-gray: rgba(130, 130, 130, 1);
+}
+
 *,
 *::before,
 *::after {
@@ -9,55 +15,67 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-size: 1.7rem;
-  font-family: 'Poppins', sans-serif;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  font-size: 1.6rem;
+  font-family: 'Raleway', sans-serif;
+  min-width: 100%;
 }
 
 .header {
-  padding: 2rem;
+  width: 100%;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.random-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 35%;
+.btn {
   cursor: pointer;
-  z-index: 1000;
 }
 
-@media screen and (min-width: 1024px) {
-  .random-button {
-    width: 10%;
+.btn-randon {
+  padding: 1.5rem;
+  width: 50%;
+  height: 60px;
+  text-align: right;
+}
+
+@media screen and (min-width: 768px) {
+  .btn-randon {
+    width: 20%;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .random-button {
+  .btn-randon {
     width: 10%;
   }
 }
 
-.quote-section {
-  min-height: calc(100vh - 10rem);
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.close {
+  padding: 1.5rem;
+  text-align: right;
+  background: #fff;
+}
+
+.icon-random {
+  vertical-align: middle;
+}
+
+.main {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: calc(100vh - 70px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,63 +88,83 @@ body {
 }
 
 .quote-container {
-  padding: 0 0 0 2.7rem;
-  width: 90%;
-  position: relative;
-}
-
-@media screen and (min-width: 1024px) {
-  .quote-container {
-    width: 40%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .quote-container {
-    width: 40%;
-  }
-}
-
-.quote-container::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: #f7df94;
-  height: 100%;
-  width: 2%;
-}
-
-.quote-author {
-  cursor: pointer;
-  margin-top: 5rem;
-  width: 90%;
-  height: 90px;
-  color: #333;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   padding: 1rem;
 }
 
-@media screen and (min-width: 1024px) {
-  .quote-author {
+@media screen and (min-width: 768px) {
+  .quote-container {
     width: 40%;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .quote-author {
-    width: 40%;
+  .quote-container {
+    width: 30%;
   }
 }
 
-.quote-author:hover {
-  background: #333;
+.quote {
+  padding: 2rem;
+  position: relative;
+}
+
+@media screen and (min-width: 1200px) {
+  .quote {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+}
+
+.quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 8px;
+  background: var(--soft-yellow);
+}
+
+.author-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2rem auto;
+  width: 95%;
+  height: 80px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.author-section:hover {
+  background-color: var(--warm-black);
   color: #fff;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
-span {
-  font-size: 1rem;
+.author-section__author {
+  padding-left: 1rem;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+}
+
+.author-section__type-quote {
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  color: var(--soft-gray);
+}
+
+.data {
+  width: 90%;
 }
 
 .lds-ripple {
@@ -184,14 +222,20 @@ span {
   }
 }
 
-.quotes-modal {
-  height: 100vh;
+/*
+* section all quotes
+*
+*/
+.modal {
   position: absolute;
-  background: #fff;
+  left: 0;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  background: #fff;
+}
+
+.all-quotes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,48 +249,49 @@ span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #fff;
+  overflow-y: scroll;
+  height: 580px;
 }
 
-.quotes {
-  padding: 1rem;
-  height: 80vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.all-quotes::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-@media screen and (min-width: 1024px) {
-  .quotes {
+.all-quotes::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.all-quotes::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+.all-quotes::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+  -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 768px) {
+  .all-quotes {
     width: 70%;
-    overflow-y: scroll;
+    margin: 5rem auto;
   }
 }
 
-.quote {
-  margin: 2rem;
+/* HELPERS */
+.m-1 {
+  margin: 1rem 0;
 }
 
-@media screen and (min-width: 1024px) {
-  .quote {
-    width: 70%;
-  }
-}
-
-.hidden {
+.active {
   display: none;
 }
 
 #loader {
-  z-index: 10000;
+  z-index: 1000000000;
+  position: absolute;
 }
 /*# sourceMappingURL=styles.css.map */

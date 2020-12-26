@@ -1,10 +1,10 @@
 $devMode: false;
 $breakpoints: (
-  s: 460px,
-  m: 640px,
-  l: 768px,
-  x: 1024px,
-  xl: 1200px,
+  s: 680px,
+  m: 768px,
+  l: 1024px,
+  x: 1200px,
+  xl: 1400px,
 );
 
 @mixin from($bp) {
@@ -18,6 +18,13 @@ $breakpoints: (
     }
   }
 }
+
+:root {
+  --soft-yellow: rgba(247, 223, 148, 1);
+  --warm-black: rgba(51, 51, 51, 1);
+  --soft-gray: rgba(130, 130, 130, 1);
+}
+
 *,
 *::before,
 *::after {
@@ -30,82 +37,113 @@ $breakpoints: (
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 body {
-  font-size: 1.7rem;
-  font-family: 'Poppins', sans-serif;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  font-size: 1.6rem;
+  font-family: 'Raleway', sans-serif;
+  min-width: 100%;
 }
 .header {
-  padding: 2rem;
+  width: 100%;
+  height: 70px;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
-.random-button {
-  display: flex;
-  width: 35%;
+.btn {
   cursor: pointer;
-  z-index: 1000;
+}
+.btn-randon {
+  padding: 1.5rem;
+  width: 50%;
+  height: 60px;
+  text-align: right;
+  @include from(m) {
+    width: 20%;
+  }
   @include from(x) {
     width: 10%;
   }
-  @include from(xl) {
-    width: 10%;
-  }
+}
+.close {
+  padding: 1.5rem;
+  text-align: right;
+  background: #fff;
+}
+.icon-random {
+  vertical-align: middle;
 }
 
-.quote-section {
-  min-height: calc(100vh - 10rem);
-  flex-direction: column;
+.main {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .quote-container {
-  padding: 0 0 0 2.7rem;
-  width: 90%;
-  position: relative;
-  @include from(x) {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
+  @include from(m) {
     width: 40%;
   }
-  @include from(xl) {
-    width: 40%;
+  @include from(x) {
+    width: 30%;
+  }
+}
+
+.quote {
+  padding: 2rem;
+  position: relative;
+  @include from(x) {
+    width: 100%;
+    font-size: 1.8rem;
   }
   &::before {
     content: '';
     position: absolute;
-    left: 0;
     top: 0;
-    background: #f7df94;
-    height: 100%;
-    width: 2%;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 8px;
+    background: var(--soft-yellow);
   }
 }
-.quote-author {
+
+.author-section {
+  display: flex;
+  align-items: center;
+  margin: 2rem auto;
+  width: 95%;
+  height: 80px;
   cursor: pointer;
-  margin-top: 5rem;
-  width: 90%;
-  height: 90px;
-  color: #333;
-  padding: 1rem;
-  @include from(x) {
-    width: 40%;
-  }
-  @include from(xl) {
-    width: 40%;
-  }
+  transition: all 0.2s ease-in-out;
   &:hover {
-    background: #333;
+    background-color: var(--warm-black);
     color: #fff;
     transition: all 0.2s ease-in-out;
   }
+  &__author {
+    padding-left: 1rem;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+  &__type-quote {
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    color: var(--soft-gray);
+  }
 }
-span {
-  font-size: 1rem;
+.data {
+  width: 90%;
 }
+
 .lds-ripple {
   display: inline-block;
   position: relative;
@@ -138,40 +176,56 @@ span {
     opacity: 0;
   }
 }
-.quotes-modal {
-  height: 100vh;
+
+/*
+* section all quotes
+*
+*/
+
+.modal {
   position: absolute;
-  background: #fff;
+  left: 0;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
+  background: #fff;
+}
+.all-quotes {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.quotes {
-  padding: 1rem;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  @include from(x) {
+  background-color: #fff;
+  overflow-y: scroll;
+  height: 580px;
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+  @include from(m) {
     width: 70%;
-    overflow-y: scroll;
+    margin: 5rem auto;
   }
 }
-.quote {
-  margin: 2rem;
-  @include from(x) {
-    width: 70%;
-  }
+/* HELPERS */
+.m-1 {
+  margin: 1rem 0;
 }
-.hidden {
+.active {
   display: none;
 }
 #loader {
-  z-index: 10000;
+  z-index: 1000000000;
+  position: absolute;
 }
